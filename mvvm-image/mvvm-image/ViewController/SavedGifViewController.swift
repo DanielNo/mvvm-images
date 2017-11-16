@@ -1,5 +1,5 @@
 //
-//  ImageSearchViewController.swift
+//  SavedGifViewController.swift
 //  mvvm-image
 //
 //  Created by Daniel No on 10/29/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageSearchViewController: UIViewController {
+class SavedGifViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

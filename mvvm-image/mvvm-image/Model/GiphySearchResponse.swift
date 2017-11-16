@@ -1,0 +1,44 @@
+//
+//  GiphySearchResponse.swift
+//  mvvm-image
+//
+//  Created by Daniel No on 10/30/17.
+//  Copyright © 2017 Daniel No. All rights reserved.
+//
+
+import Foundation
+
+struct GiphySearchResponse : Decodable{
+    let data : [GiphySearchResult]?
+    let pagination : [String : Int]?
+    let meta : Meta?
+    
+    
+}
+
+struct GiphySearchResult : Decodable{
+    let type : String
+    let id : String
+    let slug : String
+    let url : String
+    let bitly_gif_url : String
+    let bitly_url : String
+    let embed_url : String
+    let username : String
+    let source : String
+    let rating : String
+    let content_url : String
+    let source_tld : String
+    let source_post_url : String
+    let is_indexable : Int
+    let import_datetime : String
+    let trending_datetime : String
+}
+
+struct Meta : Decodable{
+    let status : Int
+    let msg : String?
+    let response_id : String?
+}
+
+

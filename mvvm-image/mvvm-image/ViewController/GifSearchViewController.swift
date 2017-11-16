@@ -1,5 +1,5 @@
 //
-//  SavedImageViewController.swift
+//  GifSearchViewController.swift
 //  mvvm-image
 //
 //  Created by Daniel No on 10/29/17.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class SavedImageViewController: UIViewController {
-
+class GifSearchViewController: UIViewController {
+    
+    let viewModel = GifSearchViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewModel.searchGiphy(query: "doge")
     }
 
     override func didReceiveMemoryWarning() {

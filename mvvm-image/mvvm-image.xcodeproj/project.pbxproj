@@ -14,16 +14,13 @@
 		569D28F91FA6685900DD2432 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569D28F71FA6685900DD2432 /* LaunchScreen.storyboard */; };
 		569D29041FA6685A00DD2432 /* mvvm_imageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D29031FA6685900DD2432 /* mvvm_imageTests.swift */; };
 		569D290F1FA6685A00DD2432 /* mvvm_imageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D290E1FA6685A00DD2432 /* mvvm_imageUITests.swift */; };
-		569D291E1FA66B6100DD2432 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D291C1FA66B6100DD2432 /* ImageSearchViewController.swift */; };
-		569D291F1FA66B6100DD2432 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D291C1FA66B6100DD2432 /* ImageSearchViewController.swift */; };
-		569D29201FA66B6100DD2432 /* ImageSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D291D1FA66B6100DD2432 /* ImageSearchViewController.xib */; };
-		569D29211FA66B6100DD2432 /* ImageSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D291D1FA66B6100DD2432 /* ImageSearchViewController.xib */; };
-		569D29241FA66BBF00DD2432 /* SavedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D29221FA66BBF00DD2432 /* SavedImageViewController.swift */; };
-		569D29251FA66BBF00DD2432 /* SavedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D29221FA66BBF00DD2432 /* SavedImageViewController.swift */; };
-		569D29261FA66BBF00DD2432 /* SavedImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D29231FA66BBF00DD2432 /* SavedImageViewController.xib */; };
-		569D29271FA66BBF00DD2432 /* SavedImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569D29231FA66BBF00DD2432 /* SavedImageViewController.xib */; };
-		569D292E1FA66D8B00DD2432 /* ImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D292D1FA66D8B00DD2432 /* ImageRouter.swift */; };
-		569D29301FA66EBA00DD2432 /* ImageSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D292F1FA66EBA00DD2432 /* ImageSearchResult.swift */; };
+		569D29321FA676D200DD2432 /* GifSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D29311FA676D200DD2432 /* GifSearchViewController.swift */; };
+		569D29341FA676FF00DD2432 /* SavedGifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D29331FA676FF00DD2432 /* SavedGifViewController.swift */; };
+		569D29361FA67BD500DD2432 /* GiphyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D29351FA67BD500DD2432 /* GiphyRouter.swift */; };
+		569D293A1FA6801C00DD2432 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D29391FA6801C00DD2432 /* NetworkingConstants.swift */; };
+		569D293C1FA7AB0300DD2432 /* GifSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D293B1FA7AB0300DD2432 /* GifSearchViewModel.swift */; };
+		569D293E1FA7B37B00DD2432 /* GiphySearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D293D1FA7B37B00DD2432 /* GiphySearchResponse.swift */; };
+		569D29431FA7BF6700DD2432 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D29421FA7BF6700DD2432 /* NetworkService.swift */; };
 		705A7D400751BE1EFDD59D21 /* Pods_mvvm_imageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2912D0EB249D2F06FDAA65E /* Pods_mvvm_imageUITests.framework */; };
 		D43A232A779E964AEF47CE2C /* Pods_mvvm_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15036419F287C07C84F5EE66 /* Pods_mvvm_image.framework */; };
 /* End PBXBuildFile section */
@@ -61,12 +58,13 @@
 		569D290A1FA6685A00DD2432 /* mvvm-imageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mvvm-imageUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569D290E1FA6685A00DD2432 /* mvvm_imageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mvvm_imageUITests.swift; sourceTree = "<group>"; };
 		569D29101FA6685A00DD2432 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		569D291C1FA66B6100DD2432 /* ImageSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchViewController.swift; sourceTree = "<group>"; };
-		569D291D1FA66B6100DD2432 /* ImageSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSearchViewController.xib; sourceTree = "<group>"; };
-		569D29221FA66BBF00DD2432 /* SavedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedImageViewController.swift; sourceTree = "<group>"; };
-		569D29231FA66BBF00DD2432 /* SavedImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedImageViewController.xib; sourceTree = "<group>"; };
-		569D292D1FA66D8B00DD2432 /* ImageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRouter.swift; sourceTree = "<group>"; };
-		569D292F1FA66EBA00DD2432 /* ImageSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchResult.swift; sourceTree = "<group>"; };
+		569D29311FA676D200DD2432 /* GifSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifSearchViewController.swift; sourceTree = "<group>"; };
+		569D29331FA676FF00DD2432 /* SavedGifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedGifViewController.swift; sourceTree = "<group>"; };
+		569D29351FA67BD500DD2432 /* GiphyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyRouter.swift; sourceTree = "<group>"; };
+		569D29391FA6801C00DD2432 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
+		569D293B1FA7AB0300DD2432 /* GifSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifSearchViewModel.swift; sourceTree = "<group>"; };
+		569D293D1FA7B37B00DD2432 /* GiphySearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchResponse.swift; sourceTree = "<group>"; };
+		569D29421FA7BF6700DD2432 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5E4923A491E0628E59B34B29 /* Pods-mvvm-imageTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-imageTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mvvm-imageTests/Pods-mvvm-imageTests.debug.xcconfig"; sourceTree = "<group>"; };
 		65BF44CBB2C74765D8C2F65B /* Pods-mvvm-image.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-image.release.xcconfig"; path = "Pods/Target Support Files/Pods-mvvm-image/Pods-mvvm-image.release.xcconfig"; sourceTree = "<group>"; };
 		6BBE1A918EF1505AE1C1C8F5 /* Pods_mvvm_imageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_imageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +126,7 @@
 		569D28EB1FA6685900DD2432 /* mvvm-image */ = {
 			isa = PBXGroup;
 			children = (
+				569D293F1FA7B48A00DD2432 /* Service */,
 				569D292C1FA66D5800DD2432 /* Network */,
 				569D29291FA66BD700DD2432 /* Model */,
 				569D292A1FA66BDC00DD2432 /* View */,
@@ -163,10 +162,8 @@
 		569D29281FA66BC300DD2432 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				569D291C1FA66B6100DD2432 /* ImageSearchViewController.swift */,
-				569D291D1FA66B6100DD2432 /* ImageSearchViewController.xib */,
-				569D29221FA66BBF00DD2432 /* SavedImageViewController.swift */,
-				569D29231FA66BBF00DD2432 /* SavedImageViewController.xib */,
+				569D29311FA676D200DD2432 /* GifSearchViewController.swift */,
+				569D29331FA676FF00DD2432 /* SavedGifViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -174,7 +171,7 @@
 		569D29291FA66BD700DD2432 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				569D292F1FA66EBA00DD2432 /* ImageSearchResult.swift */,
+				569D293D1FA7B37B00DD2432 /* GiphySearchResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +186,7 @@
 		569D292B1FA66BE200DD2432 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				569D293B1FA7AB0300DD2432 /* GifSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -196,9 +194,18 @@
 		569D292C1FA66D5800DD2432 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				569D292D1FA66D8B00DD2432 /* ImageRouter.swift */,
+				569D29351FA67BD500DD2432 /* GiphyRouter.swift */,
+				569D29391FA6801C00DD2432 /* NetworkingConstants.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		569D293F1FA7B48A00DD2432 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				569D29421FA7BF6700DD2432 /* NetworkService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		87D4FAA3EBDEBFD2986EF31B /* Pods */ = {
@@ -341,9 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				569D28F91FA6685900DD2432 /* LaunchScreen.storyboard in Resources */,
-				569D29261FA66BBF00DD2432 /* SavedImageViewController.xib in Resources */,
 				569D28F61FA6685900DD2432 /* Assets.xcassets in Resources */,
-				569D29201FA66B6100DD2432 /* ImageSearchViewController.xib in Resources */,
 				569D28F41FA6685900DD2432 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,8 +364,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569D29271FA66BBF00DD2432 /* SavedImageViewController.xib in Resources */,
-				569D29211FA66B6100DD2432 /* ImageSearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,11 +535,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569D29301FA66EBA00DD2432 /* ImageSearchResult.swift in Sources */,
-				569D292E1FA66D8B00DD2432 /* ImageRouter.swift in Sources */,
-				569D291E1FA66B6100DD2432 /* ImageSearchViewController.swift in Sources */,
+				569D29341FA676FF00DD2432 /* SavedGifViewController.swift in Sources */,
+				569D293A1FA6801C00DD2432 /* NetworkingConstants.swift in Sources */,
+				569D29431FA7BF6700DD2432 /* NetworkService.swift in Sources */,
+				569D293E1FA7B37B00DD2432 /* GiphySearchResponse.swift in Sources */,
 				569D28ED1FA6685900DD2432 /* AppDelegate.swift in Sources */,
-				569D29241FA66BBF00DD2432 /* SavedImageViewController.swift in Sources */,
+				569D293C1FA7AB0300DD2432 /* GifSearchViewModel.swift in Sources */,
+				569D29361FA67BD500DD2432 /* GiphyRouter.swift in Sources */,
+				569D29321FA676D200DD2432 /* GifSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,9 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569D291F1FA66B6100DD2432 /* ImageSearchViewController.swift in Sources */,
 				569D290F1FA6685A00DD2432 /* mvvm_imageUITests.swift in Sources */,
-				569D29251FA66BBF00DD2432 /* SavedImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,7 +649,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -695,6 +699,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
