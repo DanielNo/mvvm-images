@@ -14,13 +14,14 @@ public class GifSearchViewModel {
     var giphySearchResponse : GiphySearchResponse?
     
     public func searchGiphy(query : String) -> Void {
+        if (query.count >= 2){
         networkService.searchGiphy(query: query) { [unowned self] (response) in
-            
             guard let searchResult = response else{
                 return
             }
-//            print(response)
             self.giphySearchResponse = searchResult
+        }
+    
         }
     }
     

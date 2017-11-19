@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class GifSearchViewController: UIViewController {
     
     let viewModel = GifSearchViewModel()
+    let disposeBag = DisposeBag()
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.searchGiphy(query: "doge")
+        setupBindings()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +37,26 @@ class GifSearchViewController: UIViewController {
     }
     */
 
+}
+
+extension GifSearchViewController{
+    
+    func setupBindings(){
+        searchBar.rx.text
+            .orEmpty
+            .asObservable()
+            .throttle(1, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe(onNext: { (str) in
+                print(str)
+                self.viewModel.searchGiphy(query: str)
+            }, onError: { (err) in
+                print(err)
+            }, onCompleted: {
+                print("completed")
+            }).disposed(by: disposeBag)
+
+    }
+    
+    
 }

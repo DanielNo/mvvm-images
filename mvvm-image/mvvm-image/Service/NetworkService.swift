@@ -13,9 +13,15 @@ import Alamofire
 
 public class NetworkService{
     
+    let manager : SessionManager = {
+        let config = URLSessionConfiguration.default
+        config.requestCachePolicy = .returnCacheDataDontLoad
+        return Alamofire.SessionManager(configuration: config)
+    }()
     
     func searchGiphy(query : String, completion: @escaping (GiphySearchResponse?) -> ()){
-        Alamofire.request(GiphyRequestRouter.giphySearch(query: query, limit: 25, offset: 0, rating: "g", lang: "en", fmt: "json")).responseJSON { (response) in
+        print("searched : \(query)")
+        manager.request(GiphyRequestRouter.giphySearch(query: query, limit: 25, offset: 0, rating: "g", lang: "en", fmt: "json")).responseJSON { (response) in
             if response.result.isFailure{
                 completion(nil)
             }
@@ -32,7 +38,7 @@ public class NetworkService{
     }
     
     func trendingGiphy(){
-        Alamofire.request(GiphyRequestRouter.giphyTrending(limit: 25, offset: 0, rating: "g", fmt: "json")).responseJSON { (data) in
+        manager.request(GiphyRequestRouter.giphyTrending(limit: 25, offset: 0, rating: "g", fmt: "json")).responseJSON { (data) in
             //            print(data)
         }
         
