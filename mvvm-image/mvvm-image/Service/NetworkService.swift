@@ -15,7 +15,7 @@ public class NetworkService{
     
     let manager : SessionManager = {
         let config = URLSessionConfiguration.default
-        config.requestCachePolicy = .returnCacheDataDontLoad
+        config.requestCachePolicy = .returnCacheDataElseLoad
         return Alamofire.SessionManager(configuration: config)
     }()
     

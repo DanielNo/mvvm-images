@@ -1,8 +1,13 @@
 PODS:
   - Alamofire (4.5.1)
+  - Differentiator (3.0.1)
   - RxBlocking (4.0.0):
     - RxSwift (~> 4.0)
   - RxCocoa (4.0.0):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.0.1):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.0.0)
   - RxTest (4.0.0):
@@ -12,16 +17,19 @@ DEPENDENCIES:
   - Alamofire (~> 4.5)
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
+  - RxDataSources
   - RxSwift (~> 4.0)
   - RxTest (~> 4.0)
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Differentiator: ffe513ce1ea4e7198b89fac94d6e281c673055a9
   RxBlocking: 923c2c8106d80d7c2d6b276afd66ce3b10824836
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
+  RxDataSources: 098b7e62b6316313b14d6bf594e3f4f4f62a238a
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   RxTest: 0041e792cede35e53e4749f378d21482af0e9d12
 
-PODFILE CHECKSUM: d41289c265dd07af5dad602f0c8481951d225af0
+PODFILE CHECKSUM: b18b04598d2ed23b56796124c90305f043f9fc7e
 
 COCOAPODS: 1.3.1

@@ -65,6 +65,7 @@ enum GiphyRequestRouter : URLRequestConvertible{
         }
         var urlReq = URLRequest(url: url)
         urlReq.httpMethod = method.rawValue
+        print(urlstr)
         return urlReq
     }
     
