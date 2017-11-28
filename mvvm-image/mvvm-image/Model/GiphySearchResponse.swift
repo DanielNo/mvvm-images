@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+import RxDataSources
 
 struct GiphySearchResponse : Decodable{
     let data : [GiphySearchResult]?
@@ -33,6 +36,17 @@ struct GiphySearchResult : Decodable{
     let is_indexable : Int
     let import_datetime : String
     let trending_datetime : String
+}
+
+extension GiphySearchResult : IdentifiableType, Equatable{
+    typealias Identity = String
+    
+    var identity : Identity { return id }
+    
+    static func ==(lhs: GiphySearchResult, rhs: GiphySearchResult) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
 }
 
 struct Meta : Decodable{

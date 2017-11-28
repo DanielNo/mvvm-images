@@ -8,20 +8,20 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
 public class GifSearchViewModel {
     let networkService = NetworkService()
-    var giphySearchResponse : GiphySearchResponse?
-    
+    let giphySearchResults: Variable<[GiphySearchResult]> = Variable([])
+
     public func searchGiphy(query : String) -> Void {
         if (query.count >= 2){
         networkService.searchGiphy(query: query) { [unowned self] (response) in
-            guard let searchResult = response else{
+            guard let searchResult = response?.data else{
                 return
             }
-            self.giphySearchResponse = searchResult
-        }
-    
+            self.giphySearchResults.value = searchResult
+            }
         }
     }
     

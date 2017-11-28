@@ -9,12 +9,25 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxDataSources
 
-class GifSearchViewController: UIViewController {
+class GifSearchViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     let viewModel = GifSearchViewModel()
     let disposeBag = DisposeBag()
+    let imageCellIdentifier = "imageCell"
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var collectionView: UICollectionView!{
+        didSet{
+            let nib = UINib(nibName: "ImageCollectionViewCell", bundle: nil)
+            collectionView.register(nib, forCellWithReuseIdentifier: imageCellIdentifier)
+            let flowLayout = UICollectionViewFlowLayout()
+            let size = (collectionView.frame.size.width - CGFloat(30)) / CGFloat(3)
+            flowLayout.itemSize = CGSize(width: size, height: size)
+            collectionView.setCollectionViewLayout(flowLayout, animated: true)
+            collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,21 +55,49 @@ class GifSearchViewController: UIViewController {
 extension GifSearchViewController{
     
     func setupBindings(){
-        searchBar.rx.text
+            searchBar.rx.text
             .orEmpty
             .asObservable()
             .throttle(1, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .subscribe(onNext: { (str) in
-                print(str)
+            .subscribe(onNext: { [unowned self](str) in
+                print("typed : \(str)")
                 self.viewModel.searchGiphy(query: str)
+                self.collectionView.reloadData()
             }, onError: { (err) in
                 print(err)
             }, onCompleted: {
                 print("completed")
             }).disposed(by: disposeBag)
+        
+        let dataSource = RxCollectionViewSectionedAnimatedDataSource<ImageCollectionViewSection>(configureCell:{datasource, collectionView, index, item in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.imageCellIdentifier, for: index)
+            cell.backgroundColor = UIColor.yellow
+            return cell
+        }, configureSupplementaryView: {dataSource,collectionView,str,index in
+            return UICollectionReusableView()
+        })
 
+        viewModel.giphySearchResults.asDriver()
+            .map {
+                [ImageCollectionViewSection(header: "First section", items: $0)]
+                 }
+            .drive(collectionView.rx.items(dataSource: dataSource))
+                .disposed(by: disposeBag)
+        
     }
     
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width
+        let cellWidth = (width - 30) / 2 // compute your cell width
+        return CGSize(width: cellWidth, height: cellWidth / 0.6)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+
     
 }
