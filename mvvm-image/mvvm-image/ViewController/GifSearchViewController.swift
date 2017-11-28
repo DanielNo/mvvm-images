@@ -22,8 +22,6 @@ class GifSearchViewController: UIViewController, UICollectionViewDelegateFlowLay
             let nib = UINib(nibName: "ImageCollectionViewCell", bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: imageCellIdentifier)
             let flowLayout = UICollectionViewFlowLayout()
-            let size = (collectionView.frame.size.width - CGFloat(30)) / CGFloat(3)
-            flowLayout.itemSize = CGSize(width: size, height: size)
             collectionView.setCollectionViewLayout(flowLayout, animated: true)
             collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         }
@@ -93,10 +91,6 @@ extension GifSearchViewController{
         let width = collectionView.bounds.width
         let cellWidth = (width - 30) / 2 // compute your cell width
         return CGSize(width: cellWidth, height: cellWidth / 0.6)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
     }
 
     
