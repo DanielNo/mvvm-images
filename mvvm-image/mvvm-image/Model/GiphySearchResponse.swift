@@ -36,6 +36,7 @@ struct GiphySearchResult : Decodable{
     let is_indexable : Int
     let import_datetime : String
     let trending_datetime : String
+    let images : [String : [String : String]]
 }
 
 extension GiphySearchResult : IdentifiableType, Equatable{

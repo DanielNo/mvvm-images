@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="322" height="56"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OYO-tA-s0L">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OYO-tA-s0L" customClass="FLAnimatedImageView">
                         <rect key="frame" x="0.0" y="0.0" width="322" height="56"/>
                     </imageView>
                 </subviews>
@@ -32,7 +32,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="322" height="56"/>
             <connections>
-                <outlet property="imageView" destination="OYO-tA-s0L" id="PvU-BE-KyA"/>
+                <outlet property="imageView" destination="OYO-tA-s0L" id="cDi-79-KEn"/>
             </connections>
             <point key="canvasLocation" x="-212" y="-54"/>
         </collectionViewCell>

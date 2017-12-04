@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxDataSources
+import FLAnimatedImage
 
 class GifSearchViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
@@ -36,24 +37,18 @@ class GifSearchViewController: UIViewController, UICollectionViewDelegateFlowLay
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension GifSearchViewController{
     
     func setupBindings(){
-            searchBar.rx.text
+        setupUIBindings()
+        setupCollectionViewBindings()
+        
+    }
+    
+    func setupUIBindings(){
+        searchBar.rx.text
             .orEmpty
             .asObservable()
             .throttle(1, scheduler: MainScheduler.instance)
@@ -62,30 +57,35 @@ extension GifSearchViewController{
                 print("typed : \(str)")
                 self.viewModel.searchGiphy(query: str)
                 self.collectionView.reloadData()
-            }, onError: { (err) in
-                print(err)
+                }, onError: { (err) in
+                    print(err)
             }, onCompleted: {
                 print("completed")
             }).disposed(by: disposeBag)
-        
+
+    }
+}
+
+extension GifSearchViewController{
+
+    func setupCollectionViewBindings(){
         let dataSource = RxCollectionViewSectionedAnimatedDataSource<ImageCollectionViewSection>(configureCell:{datasource, collectionView, index, item in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.imageCellIdentifier, for: index)
-            cell.backgroundColor = UIColor.yellow
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.imageCellIdentifier, for: index) as! ImageCollectionViewCell
+            let searchResult = self.viewModel.giphySearchResults.value[index.row]
+            cell.configureCell(giphySearchResult: searchResult)
+            
             return cell
         }, configureSupplementaryView: {dataSource,collectionView,str,index in
             return UICollectionReusableView()
         })
-
+        
         viewModel.giphySearchResults.asDriver()
             .map {
-                [ImageCollectionViewSection(header: "First section", items: $0)]
-                 }
+                [ImageCollectionViewSection(header: self.searchBar.text!, items: $0)]
+            }
             .drive(collectionView.rx.items(dataSource: dataSource))
-                .disposed(by: disposeBag)
-        
+            .disposed(by: disposeBag)
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width
@@ -93,5 +93,5 @@ extension GifSearchViewController{
         return CGSize(width: cellWidth, height: cellWidth / 0.6)
     }
 
-    
+
 }
