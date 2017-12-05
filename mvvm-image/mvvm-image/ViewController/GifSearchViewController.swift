@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxDataSources
-import FLAnimatedImage
+import Kingfisher
 
 class GifSearchViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
@@ -53,6 +53,8 @@ extension GifSearchViewController{
             .asObservable()
             .throttle(1, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
+            .filter({ return $0.count >= 2
+            })
             .subscribe(onNext: { [unowned self](str) in
                 print("typed : \(str)")
                 self.viewModel.searchGiphy(query: str)
@@ -62,8 +64,18 @@ extension GifSearchViewController{
             }, onCompleted: {
                 print("completed")
             }).disposed(by: disposeBag)
-
+        
+        searchBar.rx.text
+            .orEmpty
+            .asObservable()
+            .filter {
+                return $0.count == 0
+            }.subscribe(onNext: { _ in
+                print("empty search text")
+                }).disposed(by: disposeBag)
+        
     }
+    
 }
 
 extension GifSearchViewController{

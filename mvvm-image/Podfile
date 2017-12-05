@@ -11,7 +11,8 @@ target 'mvvm-image' do
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
   pod 'RxDataSources'
-  pod 'SDWebImage/GIF'
+  pod 'Kingfisher', '~> 4.0'
+
 
   target 'mvvm-imageTests' do
     inherit! :search_paths
