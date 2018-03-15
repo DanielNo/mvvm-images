@@ -71,8 +71,6 @@
 		569D29421FA7BF6700DD2432 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		56A69B6F1FC3589C008EDFD7 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		56A69B701FC3589C008EDFD7 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		56A69B741FC4C5EA008EDFD7 /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = "<group>"; };
-		56A69B751FC4C5EA008EDFD7 /* ImagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesCollectionViewCell.xib; sourceTree = "<group>"; };
 		5E4923A491E0628E59B34B29 /* Pods-mvvm-imageTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-imageTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mvvm-imageTests/Pods-mvvm-imageTests.debug.xcconfig"; sourceTree = "<group>"; };
 		65BF44CBB2C74765D8C2F65B /* Pods-mvvm-image.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-image.release.xcconfig"; path = "Pods/Target Support Files/Pods-mvvm-image/Pods-mvvm-image.release.xcconfig"; sourceTree = "<group>"; };
 		6BBE1A918EF1505AE1C1C8F5 /* Pods_mvvm_imageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_imageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,8 +188,6 @@
 			children = (
 				56A69B6F1FC3589C008EDFD7 /* ImageCollectionViewCell.swift */,
 				56A69B701FC3589C008EDFD7 /* ImageCollectionViewCell.xib */,
-				56A69B741FC4C5EA008EDFD7 /* ImagesCollectionViewCell.swift */,
-				56A69B751FC4C5EA008EDFD7 /* ImagesCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -427,6 +423,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -436,6 +434,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",

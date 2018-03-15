@@ -1,10 +1,9 @@
-//
-//  GiphySearchResponse.swift
-//  mvvm-image
-//
-//  Created by Daniel No on 10/30/17.
-//  Copyright © 2017 Daniel No. All rights reserved.
-//
+/*
+ Model : Does not communicate with anybody
+ The Viewmodel Owns this(model)
+ 
+ */
+
 
 import Foundation
 import RxSwift

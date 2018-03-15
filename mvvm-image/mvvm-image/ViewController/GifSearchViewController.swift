@@ -1,16 +1,20 @@
-//
-//  GifSearchViewController.swift
-//  mvvm-image
-//
-//  Created by Daniel No on 10/29/17.
-//  Copyright © 2017 Daniel No. All rights reserved.
-//
+/*
+View controller cannot directly communicate with the Model, data is exposed through the view model
+ Bind the View(User interface) to a stream of events with RxSwift
+
+ A view(view controller and ui components) gets data from its ViewModel through BINDINGS, or invoking methods on the view model.
+ Here the UI is : CollectionView, SearchBar
+ and it is registering for changes in the Model through the view model
+ 
+ */
+
 
 import UIKit
 import RxCocoa
 import RxSwift
 import RxDataSources
 import Kingfisher
+
 
 class GifSearchViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
@@ -47,6 +51,7 @@ extension GifSearchViewController{
         
     }
     
+    // Invoke a method on the view model and binds to the data provided
     func setupUIBindings(){
         searchBar.rx.text
             .orEmpty
@@ -83,8 +88,7 @@ extension GifSearchViewController{
     func setupCollectionViewBindings(){
         let dataSource = RxCollectionViewSectionedAnimatedDataSource<ImageCollectionViewSection>(configureCell:{datasource, collectionView, index, item in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.imageCellIdentifier, for: index) as! ImageCollectionViewCell
-            let searchResult = self.viewModel.giphySearchResults.value[index.row]
-            cell.configureCell(giphySearchResult: searchResult)
+            cell.configureCell(giphySearchResult: item)
             
             return cell
         }, configureSupplementaryView: {dataSource,collectionView,str,index in
@@ -100,6 +104,8 @@ extension GifSearchViewController{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let searchResult = self.viewModel.giphySearchResults.value[indexPath.row]
+        
         let width = collectionView.bounds.width
         let cellWidth = (width - 30) / 2 // compute your cell width
         return CGSize(width: cellWidth, height: cellWidth / 0.6)

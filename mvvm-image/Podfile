@@ -12,7 +12,7 @@ target 'mvvm-image' do
   pod 'RxCocoa',    '~> 4.0'
   pod 'RxDataSources'
   pod 'Kingfisher', '~> 4.0'
-
+  pod 'RealmSwift'
 
   target 'mvvm-imageTests' do
     inherit! :search_paths

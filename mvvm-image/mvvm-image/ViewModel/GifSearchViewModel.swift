@@ -1,10 +1,6 @@
-//
-//  GifSearchViewModel.swift
-//  mvvm-image
-//
-//  Created by Daniel No on 10/30/17.
-//  Copyright © 2017 Daniel No. All rights reserved.
-//
+/*
+ View Model : Expose and format data from the model
+ */
 
 import Foundation
 import Alamofire

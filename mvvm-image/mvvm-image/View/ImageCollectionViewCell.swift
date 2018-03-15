@@ -18,7 +18,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(giphySearchResult : GiphySearchResult){
-        guard let imageURLString = giphySearchResult.images["fixed_height_small"]?["url"] else{
+        guard let imageURLString = giphySearchResult.images["fixed_width_small"]?["url"] else{
             return
         }
         print(imageURLString)
