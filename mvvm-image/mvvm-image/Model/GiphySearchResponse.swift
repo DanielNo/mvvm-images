@@ -32,7 +32,7 @@ struct GiphySearchResult : Decodable{
     let content_url : String
     let source_tld : String
     let source_post_url : String
-    let is_indexable : Int
+    let is_sticker : Int
     let import_datetime : String
     let trending_datetime : String
     let images : [String : [String : String]]
