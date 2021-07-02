@@ -7,40 +7,51 @@
 //
 
 import Foundation
-import Alamofire
 
 
 
 public class NetworkService{
     
-    let manager : SessionManager = {
+    let urlSession : URLSession = {
         let config = URLSessionConfiguration.default
-        config.requestCachePolicy = .reloadIgnoringCacheData
-        return Alamofire.SessionManager(configuration: config)
+        config.requestCachePolicy = .reloadRevalidatingCacheData
+        let session = URLSession(configuration: config)
+        return session
     }()
     
     func searchGiphy(query : String, completion: @escaping (GiphySearchResponse?) -> ()){
         print("searched : \(query)")
-        manager.request(GiphyRequestRouter.giphySearch(query: query, limit: 25, offset: 0, rating: "g", lang: "en", fmt: "json")).responseJSON { (response) in
-            if response.result.isFailure{
-                completion(nil)
-            }
-
-            if let data = response.data{
-                do{
-                    let giphyResponse = try JSONDecoder().decode(GiphySearchResponse.self, from: data);                    completion(giphyResponse)
-                }catch{
-                    completion(nil)
-                    print(error.localizedDescription)
+        guard let request = try? GiphyRequestRouter.giphySearch(query: query, limit: 25, offset: 0, rating: "g", lang: "en", fmt: "json").asURLRequest() else{
+            completion(nil)
+            print("nil req")
+            return
+        }
+        let dataTask = urlSession.dataTask(with: request) { d, resp, error in
+            if let err = error as NSError?{
+                print(err.description)
+            }else{
+                guard let response = resp as? HTTPURLResponse,let data = d else{
+                    return
                 }
+                
+                do {
+                    let giphyResponse = try JSONDecoder().decode(GiphySearchResponse.self, from: data)
+                    completion(giphyResponse)
+                } catch let e {
+                    print(e.localizedDescription)
+                }
+
             }
         }
+        
+        dataTask.resume()
+
     }
     
     func trendingGiphy(){
-        manager.request(GiphyRequestRouter.giphyTrending(limit: 25, offset: 0, rating: "g", fmt: "json")).responseJSON { (data) in
-            //            print(data)
-        }
+//        manager.request(GiphyRequestRouter.giphyTrending(limit: 25, offset: 0, rating: "g", fmt: "json")).responseJSON { (data) in
+//            //            print(data)
+//        }
         
     }
     

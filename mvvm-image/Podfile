@@ -7,11 +7,10 @@ target 'mvvm-image' do
   
 
   # Pods for mvvm-image
-  pod 'Alamofire', '~> 4.5'
-  pod 'RxSwift',    '~> 4.0'
-  pod 'RxCocoa',    '~> 4.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'RxDataSources'
-  pod 'Kingfisher', '~> 4.0'
+  pod 'Kingfisher'
 
   target 'mvvm-imageTests' do
     inherit! :search_paths

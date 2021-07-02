@@ -29,10 +29,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
         
         self.imageView.kf.indicatorType = .activity
         self.imageView.kf.setImage(with: resource)
-        
-        ImageCache.default.calculateDiskCacheSize { size in
-            print("Used disk size by bytes: \(size/1000000) mb")
-        }
     }
     
 

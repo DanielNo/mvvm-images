@@ -1,31 +1,28 @@
 PODS:
-  - Alamofire (4.5.1)
-  - Differentiator (3.0.1)
-  - Kingfisher (4.2.0)
-  - RxBlocking (4.0.0):
-    - RxSwift (~> 4.0)
-  - RxCocoa (4.0.0):
-    - RxSwift (~> 4.0)
-  - RxDataSources (3.0.1):
+  - Differentiator (3.1.0)
+  - Kingfisher (6.3.0)
+  - RxBlocking (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxSwift (4.0.0)
-  - RxTest (4.0.0):
-    - RxSwift (~> 4.0)
+  - RxSwift (4.5.0)
+  - RxTest (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5)
-  - Kingfisher (~> 4.0)
+  - Kingfisher
   - RxBlocking (~> 4.0)
-  - RxCocoa (~> 4.0)
+  - RxCocoa
   - RxDataSources
-  - RxSwift (~> 4.0)
+  - RxSwift
   - RxTest (~> 4.0)
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - Differentiator
     - Kingfisher
     - RxBlocking
@@ -35,15 +32,14 @@ SPEC REPOS:
     - RxTest
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  Differentiator: ffe513ce1ea4e7198b89fac94d6e281c673055a9
-  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
-  RxBlocking: 923c2c8106d80d7c2d6b276afd66ce3b10824836
-  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
-  RxDataSources: 098b7e62b6316313b14d6bf594e3f4f4f62a238a
-  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
-  RxTest: 0041e792cede35e53e4749f378d21482af0e9d12
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  RxBlocking: 79413e4d916f44bb3e113c5b2cc059e36fe58910
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  RxTest: 3ccb66bfbace0bf7df1c43a7c75d046f8ce60372
 
-PODFILE CHECKSUM: 2e772e1e1fc213407d96930552bb5299bc921f8d
+PODFILE CHECKSUM: 56c3f0e1c7f7bc5a92407c96f1727b9ad5555cc9
 
 COCOAPODS: 1.10.0
