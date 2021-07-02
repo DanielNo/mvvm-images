@@ -23,6 +23,7 @@
 		569D29431FA7BF6700DD2432 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D29421FA7BF6700DD2432 /* NetworkService.swift */; };
 		56A69B711FC3589C008EDFD7 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A69B6F1FC3589C008EDFD7 /* ImageCollectionViewCell.swift */; };
 		56A69B721FC3589C008EDFD7 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A69B701FC3589C008EDFD7 /* ImageCollectionViewCell.xib */; };
+		9A91DDCD268FB534007A36F0 /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91DDCC268FB534007A36F0 /* CombineViewController.swift */; };
 		B29C5A1EC78845100F695FBA /* Pods_mvvm_imageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E62332C5528B8D9F015CE /* Pods_mvvm_imageTests.framework */; };
 		B4387A64A7483192FA37F5BA /* Pods_mvvm_imageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D857A96AB3995958A1A004 /* Pods_mvvm_imageUITests.framework */; };
 		FA4C3B992CEBBBDA956BC702 /* Pods_mvvm_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDD29F56C45BDA4AFF7CB42 /* Pods_mvvm_image.framework */; };
@@ -75,6 +76,7 @@
 		56A69B6F1FC3589C008EDFD7 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		56A69B701FC3589C008EDFD7 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		65D857A96AB3995958A1A004 /* Pods_mvvm_imageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_imageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A91DDCC268FB534007A36F0 /* CombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
 		DC3E62332C5528B8D9F015CE /* Pods_mvvm_imageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_imageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CCA87F49C3F05163CD9B6F /* Pods-mvvm-image.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-image.debug.xcconfig"; path = "Target Support Files/Pods-mvvm-image/Pods-mvvm-image.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +172,7 @@
 			children = (
 				569D29311FA676D200DD2432 /* GifSearchViewController.swift */,
 				569D29331FA676FF00DD2432 /* SavedGifViewController.swift */,
+				9A91DDCC268FB534007A36F0 /* CombineViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				569D293C1FA7AB0300DD2432 /* GifSearchViewModel.swift in Sources */,
 				56A69B711FC3589C008EDFD7 /* ImageCollectionViewCell.swift in Sources */,
 				569D29361FA67BD500DD2432 /* GiphyRouter.swift in Sources */,
+				9A91DDCD268FB534007A36F0 /* CombineViewController.swift in Sources */,
 				569D29321FA676D200DD2432 /* GifSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
