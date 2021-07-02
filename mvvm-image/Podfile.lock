@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.3)
   - Differentiator (3.1.0)
   - Kingfisher (6.3.0)
   - RxBlocking (4.5.0):
@@ -14,6 +15,7 @@ PODS:
     - RxSwift (>= 4.4.2, ~> 4.4)
 
 DEPENDENCIES:
+  - Alamofire
   - Kingfisher
   - RxBlocking (~> 4.0)
   - RxCocoa
@@ -23,6 +25,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Differentiator
     - Kingfisher
     - RxBlocking
@@ -32,6 +35,7 @@ SPEC REPOS:
     - RxTest
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   RxBlocking: 79413e4d916f44bb3e113c5b2cc059e36fe58910
@@ -40,6 +44,6 @@ SPEC CHECKSUMS:
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   RxTest: 3ccb66bfbace0bf7df1c43a7c75d046f8ce60372
 
-PODFILE CHECKSUM: 56c3f0e1c7f7bc5a92407c96f1727b9ad5555cc9
+PODFILE CHECKSUM: 254a784b67293f18b0bd071f2b44c21459f1402c
 
 COCOAPODS: 1.10.0

@@ -7,6 +7,7 @@ target 'mvvm-image' do
   
 
   # Pods for mvvm-image
+  pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
