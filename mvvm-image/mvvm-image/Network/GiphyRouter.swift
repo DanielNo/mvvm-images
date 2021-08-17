@@ -65,7 +65,7 @@ enum GiphyRequestRouter : URLRequestConvertible{
         }
         var urlReq = URLRequest(url: url)
         urlReq.httpMethod = method.rawValue
-        print(urlstr)
+//        print(urlstr)
         return urlReq
     }
     
@@ -74,6 +74,7 @@ enum GiphyRequestRouter : URLRequestConvertible{
 
 enum URLError : Error{
     case invalidURL
+    case serverError
 }
 
 

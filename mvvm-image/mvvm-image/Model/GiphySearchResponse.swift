@@ -18,7 +18,7 @@ struct GiphySearchResponse : Decodable{
     
 }
 
-struct GiphySearchResult : Decodable{
+struct GiphySearchResult : Decodable, Hashable{
     let type : String
     let id : String
     let slug : String

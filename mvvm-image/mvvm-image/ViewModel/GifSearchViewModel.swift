@@ -5,13 +5,15 @@
 import Foundation
 import Alamofire
 import RxSwift
+import Combine
 
 
 public class GifSearchViewModel {
     let networkService = NetworkService()
     let giphySearchResults: Variable<[GiphySearchResult]> = Variable([])
+    @Published var combineSearchResults: [GiphySearchResult] = []
 
-    public func searchGiphy(query : String) -> Void {
+    public func searchGiphyRxSwift(query : String) -> Void {
         networkService.searchGiphy(query: query) { [unowned self] (response) in
             guard let searchResult = response?.data else{
                 return
@@ -20,7 +22,15 @@ public class GifSearchViewModel {
             }
     }
     
-
+    public func searchGiphyCombine(query : String) -> Void {
+        networkService.searchGiphy(query: query) { [unowned self] (response) in
+            guard let searchResult = response?.data else{
+                return
+            }
+            self.combineSearchResults = searchResult
+            }
+    }
+    
     
     
 }

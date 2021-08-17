@@ -6,11 +6,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--RxSwift-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="GifSearchViewController" customModule="mvvm_image" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,7 +45,7 @@
                             <constraint firstItem="jCS-cv-tiU" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="x38-z2-VuB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="RxSwift" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="collectionView" destination="jCS-cv-tiU" id="1M0-Ti-2xH"/>
                         <outlet property="searchBar" destination="mPl-4z-PTv" id="8QG-6G-7Lb"/>
@@ -66,15 +65,15 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <segue destination="VQ0-Qn-nBu" kind="relationship" relationship="viewControllers" id="Dun-Kj-zeh"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="c3h-80-4G0" kind="relationship" relationship="viewControllers" id="Dun-Kj-zeh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Combine View Controller-->
         <scene sceneID="JTb-81-OXt">
             <objects>
                 <collectionViewController id="c3h-80-4G0" customClass="CombineViewController" customModule="mvvm_image" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,26 +87,36 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5vh-Hh-3Iv">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tAp-ji-8ux">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="c3h-80-4G0" id="j6G-Ut-GR6"/>
                             <outlet property="delegate" destination="c3h-80-4G0" id="a15-Y1-3zu"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="XBm-F7-eag"/>
+                    <navigationItem key="navigationItem" id="5DI-ot-bit"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5o-Ta-bVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="397"/>
+            <point key="canvasLocation" x="1671.2" y="396.25187406296857"/>
+        </scene>
+        <!--Combine-->
+        <scene sceneID="Qnw-QD-jAS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VQ0-Qn-nBu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Combine" id="XBm-F7-eag"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e8u-BV-wzi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c3h-80-4G0" kind="relationship" relationship="rootViewController" id="neO-gR-wAI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hGX-33-VT7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="732" y="396.25187406296857"/>
         </scene>
     </scenes>
     <resources>

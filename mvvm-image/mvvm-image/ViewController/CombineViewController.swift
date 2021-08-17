@@ -10,28 +10,84 @@ View controller cannot directly communicate with the Model, data is exposed thro
 
 
 import UIKit
-import RxCocoa
-import RxSwift
-import RxDataSources
+import Combine
 import Kingfisher
 
 
 class CombineViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let viewModel = GifSearchViewModel()
-    let disposeBag = DisposeBag()
     let imageCellIdentifier = "imageCell"
-    @IBOutlet weak var searchBar: UISearchBar!
+    lazy var searchController : UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for gifs"
+        return searchController
+    }()
     
+    enum Section : String{
+        case main
+    }
+    
+    lazy var dataSource : UICollectionViewDiffableDataSource<Section,GiphySearchResult> =
+        {
+            
+            let dSource : UICollectionViewDiffableDataSource<Section,GiphySearchResult> = UICollectionViewDiffableDataSource(collectionView: collectionView!) { (cv, indexPath, item) -> UICollectionViewCell? in
+                let cell = cv.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
+                cell.configureCell(giphySearchResult: item)
+                return cell
+
+            }
+        return dSource
+        }()
+    
+    var subs : Set<AnyCancellable> = Set()
+    var searchBarSubject : PassthroughSubject<String,Never> = PassthroughSubject<String,Never>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupUI()
+        self.setupCombine()
+    }
+    
+    func setupUI(){
         let nib = UINib(nibName: "ImageCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: imageCellIdentifier)
         let flowLayout = UICollectionViewFlowLayout()
         self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
+        self.navigationItem.searchController = searchController
+        applySnapshot([])
+    }
+    
+    func setupCombine(){
+        viewModel.$combineSearchResults.throttle(for: 0.0, scheduler: RunLoop.main, latest: true).subscribe(on: RunLoop.main).sink { results in
+//            print(results)
+            self.applySnapshot(results)
+        }.store(in: &subs)
 
+        searchBarSubject.filter({ str in
+            str.count > 2
+        })
+        .debounce(for: 0.4, scheduler: RunLoop.main)
+        .throttle(for: 0.4, scheduler: RunLoop.main, latest: true)
+        .sink(receiveCompletion: { output in
+            print("\(output)")
+        }, receiveValue: { [unowned self] val in
+            self.viewModel.searchGiphyCombine(query: val)
+            print("received value from stream :\(val)")
+        })
+        .store(in: &subs)
+
+    }
+    
+    func applySnapshot(_ searchResults : [GiphySearchResult]? = []){
+        let items : [GiphySearchResult] = searchResults ?? []
+       
+        var snapshot = NSDiffableDataSourceSnapshot<Section,GiphySearchResult>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(items, toSection: .main)
+        dataSource.apply(snapshot)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,21 +96,21 @@ class CombineViewController: UICollectionViewController, UICollectionViewDelegat
     }
 }
 
-extension CombineViewController{
-    
-    
-    // Invoke a method on the view model and binds to the data provided
-    
+extension CombineViewController : UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else{
+            return
+        }
+        
+        searchBarSubject.send(text)
+        
+    }
 }
 
 extension CombineViewController{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let searchResult = self.viewModel.giphySearchResults.value[indexPath.row]
-        
-        let width = collectionView.bounds.width
-        let cellWidth = (width - 30) / 2 // compute your cell width
-        return CGSize(width: cellWidth, height: cellWidth / 0.6)
+        return CGSize(width: 200, height: 200)
     }
 
 

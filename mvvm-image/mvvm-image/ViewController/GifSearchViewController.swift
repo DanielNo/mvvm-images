@@ -20,12 +20,11 @@ class GifSearchViewController: UIViewController, UICollectionViewDelegateFlowLay
     
     let viewModel = GifSearchViewModel()
     let disposeBag = DisposeBag()
-    let imageCellIdentifier = "imageCell"
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
             let nib = UINib(nibName: "ImageCollectionViewCell", bundle: nil)
-            collectionView.register(nib, forCellWithReuseIdentifier: imageCellIdentifier)
+            collectionView.register(nib, forCellWithReuseIdentifier: ImageCollectionViewCell.reuseID)
             let flowLayout = UICollectionViewFlowLayout()
             collectionView.setCollectionViewLayout(flowLayout, animated: true)
             collectionView.rx.setDelegate(self).disposed(by: disposeBag)
@@ -62,7 +61,7 @@ extension GifSearchViewController{
             })
             .subscribe(onNext: { [unowned self](str) in
                 print("typed : \(str)")
-                self.viewModel.searchGiphy(query: str)
+                self.viewModel.searchGiphyRxSwift(query: str)
                 self.collectionView.reloadData()
                 }, onError: { (err) in
                     print(err)
@@ -87,7 +86,7 @@ extension GifSearchViewController{
 
     func setupCollectionViewBindings(){
         let dataSource = RxCollectionViewSectionedAnimatedDataSource<ImageCollectionViewSection>(configureCell:{datasource, collectionView, index, item in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.imageCellIdentifier, for: index) as! ImageCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: index) as! ImageCollectionViewCell
             cell.configureCell(giphySearchResult: item)
             
             return cell

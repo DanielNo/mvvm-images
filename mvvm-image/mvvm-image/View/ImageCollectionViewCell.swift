@@ -11,6 +11,7 @@ import Kingfisher
 
 class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    static let reuseID = "imageCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +22,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         guard let imageURLString = giphySearchResult.images["fixed_width_small"]?["url"] else{
             return
         }
-        print(imageURLString)
+//        print(imageURLString)
         guard let imageURL = URL(string: imageURLString) else{
             return
         }
