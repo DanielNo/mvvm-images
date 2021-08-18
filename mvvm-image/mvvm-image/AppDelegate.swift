@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.configureKingFisher()
         return true
+    }
+    
+    func configureKingFisher(){
+        let cache = ImageCache.default
+        cache.memoryStorage.config.countLimit = 100
+        cache.memoryStorage.config.totalCostLimit = 200 * 1024 * 1024
+        cache.diskStorage.config.sizeLimit = 200 * 1024 * 1024
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
